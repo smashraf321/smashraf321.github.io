@@ -4,6 +4,7 @@ import
     faLinkedin,
     faGithub,
 } from '@fortawesome/free-brands-svg-icons'
+import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 
 const TopBar = () =>
 {
@@ -32,7 +33,19 @@ const TopBar = () =>
                 <FontAwesomeIcon
                 icon={faLinkedin}
                 color="rgb(14 165 233)"
-                className="p-1 hover:text-blue-500"
+                className="p-1 hover:text-orange-500 hover:animate-wiggle"
+                />
+            </a>
+            <a
+            title="Source code for projects"
+            href="mailto:ashraf@iastate.edu"
+            target="_blank"
+            rel="noreferrer"
+            >
+                <FontAwesomeIcon
+                icon={faEnvelope}
+                color="#0ea5e9"
+                className="p-1 hover:text-white hover:animate-pulse"
                 />
             </a>
         </header>
