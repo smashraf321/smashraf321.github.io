@@ -10,7 +10,7 @@ module.exports = {
         },
       },
       animation: {
-        wiggle: 'wiggle 1s ease-in-out infinite',
+        wiggle: 'wiggle 0.5s ease-in-out infinite',
       },
     },
   },
