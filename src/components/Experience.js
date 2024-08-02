@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import {exportRenderExperienceHandler} from './sharedData/globalRenderControls';
-import { experienceSelector } from './sharedData/golbalStorage';
+import { experienceSelector } from './sharedData/globalStorage';
 import ExperienceItem from './ExperienceItem';
 
 const Experience = ({ experienceType }) =>
@@ -68,9 +68,9 @@ const Experience = ({ experienceType }) =>
 
     
 
-    const renderAccordions = displayProjectsArrayMapped.length > 0;
+    const renderAccordions = displayProjectsArrayMapped.length > 0;//bg-[#5b49ec]
     const accordionsCode = (
-        <div className="p-3 bg-gray-200 rounded-lg">
+        <div className="px-3 py-1 pt-4 rounded-xl bg-indigo-900 ">
             {React.createElement(React.Fragment, {}, ...displayProjectsArrayMapped)}
         </div>
     );

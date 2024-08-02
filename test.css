@@ -1,0 +1,35 @@
+.back {
+	background-color: green;
+	width: 400px;
+	height: 300px;
+	/* background-image: repeating-linear-gradient(45deg, white 0px,green 40px); */
+}
+
+.base {
+	position: relative;
+	left: 10px;
+	top: 10px;
+	width: 200px;
+	height: 200px;
+	border: solid 1px black;
+	background-color: white;
+	mix-blend-mode: hard-light;
+}
+
+.hole {
+	width: 80px;
+	height: 50px;
+	margin: 10px;
+	border: solid 1px red;	
+	border-radius: 10px;
+	background-color: gray;
+}
+
+.hole2 {
+	width: 80px;
+	height: 50px;
+	margin: 10px;
+	border: solid 1px red;	
+	border-radius: 10px;
+	background-color: red;
+}

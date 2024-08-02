@@ -9,18 +9,18 @@ const ExperienceItemBody = ({ body }) =>
     {
         console.log(`SKLZZ -- ${skill}`)
         return (
-            <li>
+            <li className="text-xs p-1 me-1 mt-1 rounded-lg bg-indigo-200 text-indigo-700">
                 <SkillNormal skill={skill}/>
             </li>
         );
     });
     return (
-        <>
+        <div className="p-2">
         {answer}
-        <ul>
+        <ul className="flex flex-wrap">
             {React.createElement(React.Fragment, {}, ...skillsList)}
         </ul>
-        </>
+        </div>
     );
 }
 

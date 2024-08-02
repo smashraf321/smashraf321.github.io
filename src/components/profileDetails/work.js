@@ -3,7 +3,8 @@ const allWorkExperience =
     {
         header:
         {
-            name: "monark ISU"
+            name: "Iowa State University",
+            domains: new Set(["Blockchain", "Machine perception", "IoYT of things", "automation", "image processing"])
         },
         body:
         {
@@ -14,7 +15,8 @@ const allWorkExperience =
     {
         header:
         {
-            name: "t1amat54 JD"
+            name: "t1amat54 JD",
+            domains: new Set(["Blockchain", "Machine perception"])
         },
         body:
         {

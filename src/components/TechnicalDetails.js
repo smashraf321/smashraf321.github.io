@@ -1,7 +1,7 @@
 import React from 'react';
 import Experience from './Experience';
 import FilterExperience from './FilterExperience';
-import { experienceSelector } from './sharedData/golbalStorage';
+import { experienceSelector } from './sharedData/globalStorage';
 import Skills from './Skills';
 
 const TechnicalDetails = () =>

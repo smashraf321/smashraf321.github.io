@@ -3,7 +3,8 @@ const allProjects =
     {
         header:
         {
-            name: "t154"
+            name: "t154",
+            domains: new Set(["Blockchain", "Machine perception"])
         },
         body:
         {
@@ -14,12 +15,13 @@ const allProjects =
     {
         header:
         {
-            name: "tvfbdg154"
+            name: "tvfbdg154",
+            domains: new Set(["Blockchain", "Machine perception"])
         },
         body:
         {
             answer: (<>
-                     <p>gdtbr</p>
+                     <p>gdtbr gdtbr gdtbr gdtbr gdtbr gdtbr gdtbr gdtbr gdtbr gdtbr gdtbr gdtbr gdtbr gdtbr gdtbr </p>
                      <ul>
                         <li>tes</li>
                         <li>a=fdgers</li>
@@ -32,7 +34,8 @@ const allProjects =
     {
         header:
         {
-            name: "545656h5"
+            name: "545656h5",
+            domains: new Set(["Blockchain", "Machine perception"])
         },
         body:
         {
@@ -43,7 +46,8 @@ const allProjects =
     {
         header:
         {
-            name: "32"
+            name: "32",
+            domains: new Set(["Blockchain", "Machine perception"])
         },
         body:
         {

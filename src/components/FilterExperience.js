@@ -1,6 +1,6 @@
 import { memo, useState } from "react";
 import { renderExperience, renderSkills } from "./sharedData/globalRenderControls";
-import { experienceSelector, selectedSkills } from "./sharedData/golbalStorage";
+import { experienceSelector, selectedSkills } from "./sharedData/globalStorage";
 import allWorkExperienceDict from "./profileDetails/work";
 import allProjectsDict from "./profileDetails/projects";
 

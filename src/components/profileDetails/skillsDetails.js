@@ -1,7 +1,7 @@
 const skillsDict =
 {
     languages:["java","python"],
-    dataScience:["hadoop","powerBi"]
+    dataScience:["hadoop","powerBigddgfd gdfbvdfgbddfvbd", "gjghj",  "gjghj",  "gjghj",  "gjghj",  "gjghj",  "gjghj",  "gjghj",  "gjghj",  "gjghj"]
 };
 
 export default skillsDict;

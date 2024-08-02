@@ -21,8 +21,9 @@ const SkillsType = ({ skillSelectable, skillType }) =>
         renderMapper = (skill) =>
         {
             return (
-                <li className="text-white">
-                    <SkillNormal skill={skill}/>
+                <li className="text-white text-xs bg-green-500 m-2   ">
+                    <SkillNormal skill={skill}/> 
+                    {/* {skill} */}
                 </li>
             );
         };
@@ -35,7 +36,7 @@ const SkillsType = ({ skillSelectable, skillType }) =>
         <h3 className="p-2 text-indigo-300">
             {skillType[0]}
         </h3>
-        <ul>
+        <ul className="flex flex-wrap">
             {React.createElement(React.Fragment, {}, ...skillsList)}
         </ul>
         </>

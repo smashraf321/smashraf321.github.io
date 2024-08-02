@@ -10,7 +10,7 @@ import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 const TopBar = () =>
 {
     return (
-        <header className="text-zinc-100">
+        <div className="text-zinc-100">
             <h1 className="p-4">Ashraf Shaikh</h1>
             <a
             title="Source code for projects"
@@ -51,7 +51,7 @@ const TopBar = () =>
                 className="p-1 hover:text-white hover:animate-wiggle"
                 />
             </a>
-        </header>
+        </div>
     );
 };
 

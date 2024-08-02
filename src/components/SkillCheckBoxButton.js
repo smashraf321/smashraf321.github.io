@@ -1,4 +1,4 @@
-import { selectedSkills } from "./sharedData/golbalStorage";
+import { selectedSkills } from "./sharedData/globalStorage";
 
 const SkillCheckBoxButton = ({ skill }) =>
 {
@@ -16,7 +16,7 @@ const SkillCheckBoxButton = ({ skill }) =>
             name={skill}
             value={skill}
             onChange={handleCheckBoxInput}
-            className="hidden peer"
+            className="opacity-0 peer"
             />
             <label htmlFor={skill} className="text-white peer-checked:text-indigo-500">
                 {skill}
