@@ -1,8 +1,27 @@
 import { memo, useState } from "react";
 import { renderExperience, renderSkills } from "./sharedData/globalRenderControls";
-import { experienceSelector, selectedSkills } from "./sharedData/globalStorage";
+import { experienceSelector, selectedSkills, totalExperienceItems } from "./sharedData/globalStorage";
 import allWorkExperienceDict from "./profileDetails/work";
 import allProjectsDict from "./profileDetails/projects";
+import FilterResults from "./FilterResults";
+
+let updateFilterResults;
+
+const setUpdateFilterResults = (updateFilterResultsHandler) => {
+    updateFilterResults = updateFilterResultsHandler;
+}
+
+let resultsMessagePrev = `Showing ${totalExperienceItems} items`
+const displayResultsMessage = (numResults) =>
+{
+    let displayPotentialMessage = `Showing ${numResults} items`;
+    if( resultsMessagePrev === displayPotentialMessage)
+    {
+        displayPotentialMessage = displayPotentialMessage + " ";
+    }
+    resultsMessagePrev = displayPotentialMessage;
+    return displayPotentialMessage;
+}
 
 const FilterButtons = ({ matchType, enabled }) =>
 {
@@ -28,29 +47,34 @@ const FilterButtons = ({ matchType, enabled }) =>
 
     const renderMatchingExperience = (matchType) =>
     {
+        var numResults = 0;
         Object.keys(experienceSelector).forEach(async (experienceType) =>
             {
                 let matchingExperience = new Set();
                 experienceMatcher[matchType](experienceType,matchingExperience);
-                console.log(` experience type = ${experienceType} matchin exp = ${matchingExperience}`)
-                console.log(matchingExperience)
-                await renderExperience[experienceType](matchingExperience);
+                // console.log(` experience type = ${experienceType} matchin exp = ${matchingExperience}`)
+                // console.log(matchingExperience)
+                numResults += matchingExperience.size    
+                await renderExperience[experienceType](matchingExperience);  
+                     
             }
         )
+        updateFilterResults(displayResultsMessage(numResults));
     }
     return (
         
         <button
          disabled={!enabled}
          name={matchType}
-         className="p-2 text-white"
+         //aria-describedby="filterresults"
+         className="p-1 text-indigo-900 bg-indigo-200 rounded-xl mt-1 me-1 font-medium max-w-[47%]" // max-w-[34%]
          onClick={() =>
                   {
                      renderMatchingExperience(matchType);
                   }
                  }
         >
-            {matchType} button
+            Get items with <strong>{matchType}</strong> of the selected skills 
         </button>
     );
 }
@@ -60,20 +84,23 @@ const RestoreButton = ({ enabled }) =>
     return (
         <button
          disabled={!enabled}
-         className="p-2 text-white"
+         //aria-describedby="filterresults"
+         className="p-1 text-indigo-900 bg-indigo-200 rounded-xl font-medium mt-1 me-1"//max-w-[26%]
          onClick={async () =>
                   {
                     selectedSkills.clear();
-                    Object.entries(experienceSelector).forEach((experience) =>
+                    Object.entries(experienceSelector).forEach(async(experience) =>
                     {
-                        renderExperience[experience[0]](experience[1]);
+                        await renderExperience[experience[0]](experience[1]);
                     });
                     await renderSkills(!enabled);
-                    renderSkills(enabled);
+                    await renderSkills(enabled);
+                    
+                    updateFilterResults(displayResultsMessage(totalExperienceItems));
                   }
                  }
         >
-            Clear and Restore default
+            Clear and Restore defaults
         </button>
     );
 }
@@ -90,9 +117,9 @@ const FilterExperience = () =>
         if(!checkBoxEvent.target.checked)
         {
             selectedSkills.clear();
-            Object.entries(experienceSelector).forEach((experience) =>
+            Object.entries(experienceSelector).forEach(async (experience) =>
             {
-                renderExperience[experience[0]](experience[1]);
+                await renderExperience[experience[0]](experience[1]);
             });
         }
         // activate AND/OR filter options
@@ -101,25 +128,41 @@ const FilterExperience = () =>
 
     
 
-    
-
     return (
-        <div>
+        
+        
+        <div className=" lg:px-5 py-2">
+            <div className="flex">
+            <div className="flex">
+            <label htmlFor={checkBoxLabel} className=" m-1 ">
+                Filter Mode to enable skill-based filtering
+            </label>
             <input type="checkbox"
             id={checkBoxLabel}
             name={checkBoxLabel}
             value={checkBoxLabel}
             onChange={handleCheckBoxInput}
+            aria-checked={filterModeEnabled}
             />
-            <label htmlFor={checkBoxLabel} className="text-white">
-                Enter Filter Mode
-            </label>
-            <br/>
-            <FilterButtons matchType="all" enabled={filterModeEnabled}/>
-            <FilterButtons matchType="any" enabled={filterModeEnabled}/>
-            <RestoreButton enabled={filterModeEnabled}/>
+            </div >
+            <div id="filterresults" className="m-1 ms-3" aria-live="polite">
+            {
+                filterModeEnabled && (
+                    <FilterResults exportResultsSetter={setUpdateFilterResults} />
+                )
+            }
+            </div>
+            </div>
             
-
+            {
+                filterModeEnabled && (
+                    <div className="flex flex-wrap justify-center">
+                        <FilterButtons matchType="all" enabled={filterModeEnabled}/>
+                        <FilterButtons matchType="any" enabled={filterModeEnabled}/>
+                        <RestoreButton enabled={filterModeEnabled}/>
+                    </div>
+                )
+            }
         </div>
     );
 };

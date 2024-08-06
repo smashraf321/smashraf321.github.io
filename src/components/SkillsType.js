@@ -10,7 +10,7 @@ const SkillsType = ({ skillSelectable, skillType }) =>
         renderMapper = (skill) =>
         {
             return (
-                <li className="text-white">
+                <li className="m-1">
                     <SkillCheckBoxButton skill={skill}/>
                 </li>
             );
@@ -20,8 +20,8 @@ const SkillsType = ({ skillSelectable, skillType }) =>
     {
         renderMapper = (skill) =>
         {
-            return (
-                <li className="text-white text-xs bg-green-500 m-2   ">
+            return (// bg-indigo-700
+                <li className="p-1 m-1 ms-[1.06rem] text-indigo-900 bg-indigo-200 border border-indigo-200 font-medium rounded-lg ">
                     <SkillNormal skill={skill}/> 
                     {/* {skill} */}
                 </li>
@@ -33,10 +33,10 @@ const SkillsType = ({ skillSelectable, skillType }) =>
 
     return (
         <>
-        <h3 className="p-2 text-indigo-300">
+        <h3 className="py-2 px-1 lg:px-6 text-purple-200">
             {skillType[0]}
         </h3>
-        <ul className="flex flex-wrap">
+        <ul title={`${skillType[0]} skills list`} className="lg:ps-2 flex flex-wrap">
             {React.createElement(React.Fragment, {}, ...skillsList)}
         </ul>
         </>

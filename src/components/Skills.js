@@ -18,28 +18,13 @@ const Skills = () =>
     );
 
     return (
-        <div>
-            <h2 className="p-2 text-indigo-300">
-                SKillZZ
+        <div className="pt-2">
+            <h2 className="lg:ps-5 pt-1">
+                Skills
             </h2>
             {React.createElement(React.Fragment, {}, ...skills)}
         </div>
     );
-
-    const retval1 = (
-        <p className="p-2 text-indigo-400 text-left">bleh</p>
-    );
-
-    const retval2 = (
-        <div className="p-4">
-            <h2 className="p-2 text-indigo-300 text-left animate-pulse">
-                SKillZZ
-            </h2>
-            {retval1}
-        </div>
-    );
-
-    return retval2;
 }
 
 export default Skills;

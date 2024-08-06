@@ -10,16 +10,17 @@ import SkillNormal from "./SkillNormal";
 
 const ExpandIcon = ({ accordionOpen }) =>
 {
-  return (//fill-indigo-500
+  return (//fill-indigo-500 //maybe mention aria-hidden="true"?
     <svg
-          className="fill-sky-300 shrink-0 "
-          width="16"
-          height="16"
+          aria-hidden="true"
+          className="fill-violet-200 shrink-0 "
+          width="12"
+          height="12"
           xmlns="http://www.w3.org/2000/svg"
         >
           <rect
-            y="7"
-            width="16"
+            y="5"
+            width="12"
             height="2"
             rx="1"
             className={`transform origin-center transition duration-200 ease-out ${
@@ -27,8 +28,8 @@ const ExpandIcon = ({ accordionOpen }) =>
             }`}
           />
           <rect
-            y="7"
-            width="16"
+            y="5"
+            width="12"
             height="2"
             rx="1"
             className={`transform origin-center rotate-90 transition duration-200 ease-out ${
@@ -41,31 +42,30 @@ const ExpandIcon = ({ accordionOpen }) =>
 
 const ExperienceItemHeader = ({ header, accordionOpen }) =>
     {
-      const { name , domains} = header
+      const { name , time, domains} = header
 
-      const headerTags = [...domains].map((domain)=>
+
+
+      const headerTags = [...domains].map((domain)=>//bg-sky-300 good also
       {
-        return (
-          <li className="text-xs p-1 me-1 mt-1 rounded-lg bg-sky-200 text-indigo-700">
+        return (// bg-sky-200 text-indigo-900  font-medium
+          <li className="p-1 me-2 mt-2 rounded-lg text-violet-950 bg-violet-300 font-medium"> 
           <SkillNormal skill={domain} />
         </li>
         );
         
       })
-        return (
-            <div className="p-1 flex flex-wrap justify-between rounded-xl bg-indigo-700">
-              <div className="w-10/12 text-left p-1">
-              
-              <h3>{name} </h3>
-                <p>tr</p>
-                <span>time</span>
-              
-                
+        return (// bg-indigo-700 with bg-indigo-900
+            <div className="p-1 flex flex-wrap justify-between rounded-md border border-violet-200 border-2 bg-stone-800">
+              <div className="w-11/12 text-left text-purple-200 leading-6 p-1">
+                <h3>{name} </h3>
+                <p className="text-base">{header?.title}</p>
+                <p className="text-sm text-zinc-200"><em>{time}</em> </p>
                 <ul title="domain areas" className="flex flex-wrap">
                   {React.createElement(React.Fragment, {}, ...headerTags)}
                 </ul>
               </div>
-              <div className="my-auto pr-2">
+              <div className="my-auto pr-1">
               <ExpandIcon accordionOpen={accordionOpen}/>
               </div>
         </div>

@@ -1,17 +1,15 @@
+import aboutMe from "./profileDetails/aboutMe";
+
 const AboutMe = () =>
 {
-    const retval1 = (
-        <>
-        <p className="text-red-600">me nooba</p>
-        <p className="text-red-600">me bigger nooba also</p>
-        </>
-    );
     const retval2 = (
-        <div className="p-4">
-            <h2 className="p-2 text-green-300 text-left">
+        <div className="lg:ps-5 pb-1">
+            <h2 className="pb-2">
                 About Me
             </h2>
-            {retval1}
+            <div className="pe-2 text-sm">
+            {aboutMe}
+            </div>   
         </div>
     );
     return retval2;

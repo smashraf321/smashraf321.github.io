@@ -26,15 +26,15 @@ function App() {
     // bg-[url('../src/img/space_wallpaper.jpg')]
     // flex justify-center
     // md:w-3/4 xl:w-3/5
-    <div className="w-full h-full bg-slate-800 sm:flex sm:justify-center lg:flex-none">
+    <div className="w-full h-full min-h-screen bg-slate-800 sm:flex sm:justify-center lg:flex-none text-zinc-200 text-xs">
       <div className="font-montserrat sm:max-w-[600px] md:min-w-[600px] md:w-[70%] lg:w-full lg:max-w-full lg:flex lg:justify-between ">
-        <div className="lg:w-[45%] lg:max-w-[45%]">
+        <div className="px-1 ps-3 lg:w-[47%] lg:max-w-[47%] pt-2">
           <TopBar/>
           <AboutMe/>
           <Skills/>
           <FilterExperience/>
         </div>
-        <div className="lg:min-w-[600px] lg:w-[55%] lg:p-2 lg:max-h-screen lg:overflow-y-scroll">
+        <div className="lg:min-w-[600px] lg:w-[53%] lg:p-1 lg:ps-2 lg:max-h-screen lg:overflow-y-scroll lg:pt-2">
           {React.createElement(React.Fragment, {}, ...ExperienceList)}
         </div>
       </div>
