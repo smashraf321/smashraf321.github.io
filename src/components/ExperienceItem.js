@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { memo, useState } from "react";
 import ExperienceItemHeader from "./ExperienceItemHeader";
 import ExperienceItemBody from "./ExperienceItemBody";
+
 
 // const ExperienceItem = ({ experience }) => {
 //   const [accordionOpen, setAccordionOpen] = useState(false);
@@ -33,10 +34,10 @@ import ExperienceItemBody from "./ExperienceItemBody";
 //   );
 // };
 
+
 const ExperienceItem = ({ experience }) => {
   const [accordionOpen, setAccordionOpen] = useState(false);
-
-  console.log(experience)
+  experience.accordionHandler = setAccordionOpen;
 
   const { header, body } = experience;
 
@@ -48,7 +49,10 @@ const ExperienceItem = ({ experience }) => {
         id={header.name + header.time}
         aria-expanded={accordionOpen}
         aria-controls={header.name + header.time + "body"}
-        onClick={() => setAccordionOpen(!accordionOpen)} // justify-between was used in button // !accordion transition-all  ease-in // accordiom transition-all  ease-out
+        onClick={() => {
+          experience.displayExpanded = !accordionOpen;
+          setAccordionOpen(!accordionOpen);
+        }} // justify-between was used in button // !accordion transition-all  ease-in // accordiom transition-all  ease-out
         className="w-full "
       >
         <ExperienceItemHeader header={header} accordionOpen={accordionOpen}/>

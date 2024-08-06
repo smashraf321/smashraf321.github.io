@@ -1,4 +1,4 @@
-const allProjects = [
+var allProjectsInit = [
     {
         header: {
             name: "Portfolio",
@@ -9,13 +9,15 @@ const allProjects = [
             description: (
                 <>
                 <h4>Goal</h4>
-                <p>Design an accessible portfolio website</p>
+                <p>Design an accessible portfolio website.</p>
                 <h4>Actions</h4>
                 <ul className="list-disc  ps-2">
                     <li>Created the site using efficient algorithms and optimized rendering.</li>
                     <li>Implemented a robust filter feature to only display items with interested skills.</li>
+                    <li>Optimized state management for convenient user experience.</li>
                     <li>Ran accessibility checks including with NVDA to ensure site is 100% accessible.</li>
                 </ul>
+                <p>NOTE: Will keep improving, this is just the beginning.</p>
                 </>
             ),
             skills: new Set(["React", "Tailwind", "JavaScript", "HTML/CSS", "NVDA"])
@@ -101,7 +103,7 @@ const allProjects = [
                 </ul>
                 </>
             ),
-            skills: new Set(["C/C++"])
+            skills: new Set(["C/C++", "SFML"])
         }
     },
     {
@@ -146,5 +148,12 @@ const allProjects = [
         }
     }
 ];
+
+const allProjects = allProjectsInit.map((project) => {
+    return { ...project,
+            displayExpanded: false,
+            accordionHandler: () => {}
+    }
+ });
 
 export default allProjects;

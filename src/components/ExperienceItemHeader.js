@@ -5,7 +5,7 @@
 //   </>
 // )
 
-import React from "react";
+import React, { memo } from "react";
 import SkillNormal from "./SkillNormal";
 
 const ExpandIcon = ({ accordionOpen }) =>

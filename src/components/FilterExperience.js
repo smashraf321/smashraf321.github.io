@@ -31,16 +31,27 @@ const FilterButtons = ({ matchType, enabled }) =>
              {
                 // AND check
                 experienceSelector[experienceType].forEach((objval) => {
-                    selectedSkills.size > 0 && selectedSkills.isSubsetOf(objval.body.skills) && matchingExperience.add(objval);
+                    if(selectedSkills.size > 0 && selectedSkills.isSubsetOf(objval.body.skills))
+                    {
+                        matchingExperience.add(objval);
+                    }
                 });
              },
         any: (experienceType, matchingExperience) =>
              {
                 // OR check
-                selectedSkills.forEach((arrval) => {
-                    experienceSelector[experienceType].forEach((objval) => {
-                       objval.body.skills.has(arrval) && matchingExperience.add(objval);
-                    });
+                // shows experience in order of skills selected
+                // selectedSkills.forEach((arrval) => {
+                //     experienceSelector[experienceType].forEach((objval) => {
+                //        objval.body.skills.has(arrval) && matchingExperience.add(objval);
+                //     });
+                // });
+                // shows exp in their initial order
+                experienceSelector[experienceType].forEach((objval) => {
+                    if(selectedSkills.intersection(objval.body.skills).size > 0)
+                    {
+                        matchingExperience.add(objval);
+                    }
                 });
              }
     };
@@ -55,7 +66,12 @@ const FilterButtons = ({ matchType, enabled }) =>
                 // console.log(` experience type = ${experienceType} matchin exp = ${matchingExperience}`)
                 // console.log(matchingExperience)
                 numResults += matchingExperience.size    
-                await renderExperience[experienceType](matchingExperience);  
+                await renderExperience[experienceType](matchingExperience);
+                [...matchingExperience].forEach(async(expItem) =>
+                {
+                    await expItem.accordionHandler(expItem.displayExpanded);
+                }
+                )
                      
             }
         )
@@ -92,6 +108,11 @@ const RestoreButton = ({ enabled }) =>
                     Object.entries(experienceSelector).forEach(async(experience) =>
                     {
                         await renderExperience[experience[0]](experience[1]);
+                        experience[1].forEach((expItem) =>
+                        {
+                            expItem.accordionHandler(expItem.displayExpanded);
+                        }
+                        )
                     });
                     await renderSkills(!enabled);
                     await renderSkills(enabled);
@@ -117,9 +138,14 @@ const FilterExperience = () =>
         if(!checkBoxEvent.target.checked)
         {
             selectedSkills.clear();
-            Object.entries(experienceSelector).forEach(async (experience) =>
+            Object.entries(experienceSelector).forEach(async(experience) =>
             {
                 await renderExperience[experience[0]](experience[1]);
+                experience[1].forEach((expItem) =>
+                    {
+                        expItem.accordionHandler(expItem.displayExpanded);
+                    }
+                    )
             });
         }
         // activate AND/OR filter options
@@ -129,8 +155,6 @@ const FilterExperience = () =>
     
 
     return (
-        
-        
         <div className=" lg:px-5 py-2">
             <div className="flex">
             <div className="flex">
@@ -167,5 +191,4 @@ const FilterExperience = () =>
     );
 };
 
-// export default memo(FilterExperience);
 export default FilterExperience;

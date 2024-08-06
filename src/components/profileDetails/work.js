@@ -1,7 +1,7 @@
 import React from "react";
 
 
-const allWorkExperience = [
+const allWorkExperienceInit = [
     {
         header: {
             name: "American Foundation for the Blind",
@@ -54,7 +54,7 @@ const allWorkExperience = [
                 </ul>
                 </>
             ),
-            skills: new Set(["Google Analytics", "Python", "HTML/CSS", "JavaScript", "Drupal", "Acrobat Pro"])
+            skills: new Set(["Google Analytics", "Python", "Excel", "HTML/CSS", "JavaScript", "Drupal", "Acrobat Pro"])
         }
     },
     {
@@ -62,7 +62,7 @@ const allWorkExperience = [
             name: "John Deere ISG (Contractor)",
             title: "Software Engineer II",
             time: "Sep '19 - Aug '22",
-            domains: new Set(["Machine Vision", "Image Processing", "IoT", "Embedded Applications", "System Automation"])
+            domains: new Set(["Machine Vision", "Image Processing", "IoT", "Sensor Fusion", "Embedded Applications", "System Automation"])
         },
         body: {
             description: (
@@ -105,5 +105,12 @@ const allWorkExperience = [
         }
     }
 ];
+
+const allWorkExperience = allWorkExperienceInit.map((work) => {
+    return { ...work,
+            displayExpanded: false,
+            accordionHandler: () => {}
+    }
+ });
 
 export default allWorkExperience;

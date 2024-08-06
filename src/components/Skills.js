@@ -7,7 +7,7 @@ const Skills = () =>
 {
     const [skillSelectable, setSkillSelectable] = useState(false);
     exportRenderSkillsHandler(setSkillSelectable);
-    console.log(`renderin skills`)
+    // console.log(`renderin skills`)
     
     const skills = Object.entries(skillsDict).map((skillType) =>
         {

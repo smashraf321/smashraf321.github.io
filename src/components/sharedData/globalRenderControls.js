@@ -7,8 +7,9 @@ const exportRenderSkillsHandler = (renderHandler) =>
 
 var renderExperience =
 {
-    work: () => {},
-    projects: () => {}
+    // Work: () => {},
+    // Research: () => {},
+    // Projects: () => {}
 };
 
 const exportRenderExperienceHandler = (experienceType, renderHandler) =>

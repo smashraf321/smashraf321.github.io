@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { memo, useState } from 'react';
 import {exportRenderExperienceHandler} from './sharedData/globalRenderControls';
 import { experienceSelector } from './sharedData/globalStorage';
 import ExperienceItem from './ExperienceItem';
@@ -19,9 +19,10 @@ const Experience = ({ experienceType }) =>
         // console.log(Object.values(experienceToDisplay))
         // console.log(experience)
         return (
-            <ExperienceItem
-                 experience={experience}
-            />    
+            <>
+            <ExperienceItem experience={experience} />
+            {/* { experience.useDisplayExpanded && experience.accordionHandler(experience.displayExpanded) } */}
+            </>  
         );
     })
 

@@ -1,4 +1,4 @@
-const allResearch =
+const allResearchInit =
 [
     {
         header:
@@ -6,7 +6,7 @@ const allResearch =
             name: "Analyzing driving behavior in Fleet Management System",
             title: "Industry Partner: Optical Operations LLC",
             time: "Aug '18 - Aug '19",
-            domains: new Set(["Data Analytics", "Sensor Fusion", "IoT", "Vehicle Telematics"])
+            domains: new Set(["Data Analytics", "Sensor Fusion", "IoT", "Vehicle Telematics", "Embedded Applications", "System Automation"])
         },
         body:
         {
@@ -24,9 +24,16 @@ const allResearch =
                 </ul>
                 </>
             ),
-            skills: new Set(["Python", "Cloud Firestore", "Bash", "CAN bus"])
+            skills: new Set(["Python", "Excel", "Cloud Firestore", "Bash", "CAN bus"])
         }
     }
 ]
+
+const allResearch = allResearchInit.map((research) => {
+    return { ...research,
+            displayExpanded: false,
+            accordionHandler: () => {}
+    }
+ });
 
 export default allResearch;

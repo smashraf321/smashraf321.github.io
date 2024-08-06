@@ -10,7 +10,6 @@ import Experience from './components/Experience';
 import React from 'react';
 import { experienceSelector } from './components/sharedData/globalStorage';
 
-// MAKE SURE FONT SIZE DECREASES WITH ZOOM
 
 function App() {
   //return(<button disabled={false} onClick={()=>{console.log(`clicked`)}}>click me</button>)
