@@ -30,12 +30,23 @@ const FilterButtons = ({ matchType, enabled }) =>
         all: (experienceType, matchingExperience) =>
              {
                 // AND check
+                // issubsetof is new feature june 2024, won't work in older
+                // experienceSelector[experienceType].forEach((objval) => {
+                //     selectedSkills.size > 0 && selectedSkills.isSubsetOf(objval.body.skills) && matchingExperience.add(objval)    
+                // });
                 experienceSelector[experienceType].forEach((objval) => {
-                    if(selectedSkills.size > 0 && selectedSkills.isSubsetOf(objval.body.skills))
+
+                    let matchFound = selectedSkills.size > 0;
+                    let iter = selectedSkills.values();
+                    let i = iter.next();
+                    while(!i.done && matchFound)
                     {
-                        matchingExperience.add(objval);
+                        matchFound = matchFound && objval.body.skills.has(i.value);
+                        i = iter.next();
                     }
+                    matchFound && matchingExperience.add(objval);
                 });
+
              },
         any: (experienceType, matchingExperience) =>
              {
@@ -47,12 +58,23 @@ const FilterButtons = ({ matchType, enabled }) =>
                 //     });
                 // });
                 // shows exp in their initial order
+                // intersection is new feature june 2024, won't work in older
+                // experienceSelector[experienceType].forEach((objval) => {
+                //     selectedSkills.intersection(objval.body.skills).size > 0 && matchingExperience.add(objval)
+                // });
                 experienceSelector[experienceType].forEach((objval) => {
-                    if(selectedSkills.intersection(objval.body.skills).size > 0)
+
+                    let matchFound = false;
+                    let iter = selectedSkills.values();
+                    let i = iter.next();
+                    while(!i.done && !matchFound)
                     {
-                        matchingExperience.add(objval);
+                        matchFound = objval.body.skills.has(i.value);
+                        i = iter.next();
                     }
+                    matchFound && matchingExperience.add(objval);
                 });
+
              }
     };
 
