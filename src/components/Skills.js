@@ -1,5 +1,5 @@
 import React, { memo, useState } from "react";
-import skillsDict from "./profileDetails/skillsDetails";
+import {skillsDict, skillTitle} from "./profileDetails/skillsDetails";
 import { exportRenderSkillsHandler } from "./sharedData/globalRenderControls";
 import SkillsType from "./SkillsType";
 
@@ -19,8 +19,8 @@ const Skills = () =>
 
     return (
         <div className="pt-2">
-            <h2 className="lg:ps-5 pt-1">
-                Skills
+            <h2 className="2xl:ps-5 pt-1">
+                {skillTitle}
             </h2>
             {React.createElement(React.Fragment, {}, ...skills)}
         </div>

@@ -10,7 +10,7 @@ const ExperienceItemBody = ({ body }) =>
     {
         // console.log(`SKLZZ --- ${description} ---${skill}`)
         return (// 
-            <li className="p-1 me-1 mt-1 rounded-lg bg-indigo-200 text-indigo-900 font-medium text-xs">
+            <li className="p-1 me-1 mt-1 rounded-lg bg-indigo-200 text-indigo-900 font-medium text-xs 2xl:text-sm">
                 <SkillNormal skill={skill}/>
             </li>
         );

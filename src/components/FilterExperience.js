@@ -27,7 +27,7 @@ const FilterButtons = ({ matchType, enabled }) =>
 {
     const experienceMatcher =
     {
-        all: (experienceType, matchingExperience) =>
+        "All": (experienceType, matchingExperience) =>
              {
                 // AND check
                 // issubsetof is new feature june 2024, won't work in older
@@ -48,7 +48,7 @@ const FilterButtons = ({ matchType, enabled }) =>
                 });
 
              },
-        any: (experienceType, matchingExperience) =>
+        "At least one": (experienceType, matchingExperience) =>
              {
                 // OR check
                 // shows experience in order of skills selected
@@ -112,7 +112,11 @@ const FilterButtons = ({ matchType, enabled }) =>
                   }
                  }
         >
-            Get items with <strong>{matchType}</strong> of the selected skills 
+            {
+                matchType === "All"
+                ? (<><strong>{matchType}</strong> selections in item</>)
+                : (<><strong>{matchType}</strong> in item </>)
+            } 
         </button>
     );
 }
@@ -132,6 +136,7 @@ const RestoreButton = ({ enabled }) =>
                         await renderExperience[experience[0]](experience[1]);
                         experience[1].forEach((expItem) =>
                         {
+                            expItem.displayExpanded = false;
                             expItem.accordionHandler(expItem.displayExpanded);
                         }
                         )
@@ -165,6 +170,7 @@ const FilterExperience = () =>
                 await renderExperience[experience[0]](experience[1]);
                 experience[1].forEach((expItem) =>
                     {
+                        // expItem.displayExpanded = false;
                         expItem.accordionHandler(expItem.displayExpanded);
                     }
                     )
@@ -177,9 +183,9 @@ const FilterExperience = () =>
     
 
     return (
-        <div className=" lg:px-5 py-2">
+        <div className=" 2xl:px-5 py-2">
             <div className="flex">
-            <div className="flex">
+            <div className="flex border border-purple-200 rounded-md pe-1 mt-2 mb-2">
             <label htmlFor={checkBoxLabel} className=" m-1 ">
                 Filter Mode to enable skill-based filtering
             </label>
@@ -191,7 +197,7 @@ const FilterExperience = () =>
             aria-checked={filterModeEnabled}
             />
             </div >
-            <div id="filterresults" className="m-1 ms-3" aria-live="polite">
+            <div id="filterresults" className="m-1 mt-3 ms-3" aria-live="polite">
             {
                 filterModeEnabled && (
                     <FilterResults exportResultsSetter={setUpdateFilterResults} />
@@ -203,8 +209,8 @@ const FilterExperience = () =>
             {
                 filterModeEnabled && (
                     <div className="flex flex-wrap justify-center">
-                        <FilterButtons matchType="all" enabled={filterModeEnabled}/>
-                        <FilterButtons matchType="any" enabled={filterModeEnabled}/>
+                        <FilterButtons matchType="All" enabled={filterModeEnabled}/>
+                        <FilterButtons matchType="At least one" enabled={filterModeEnabled}/>
                         <RestoreButton enabled={filterModeEnabled}/>
                     </div>
                 )

@@ -8,7 +8,7 @@ const FilterResults = ({exportResultsSetter}) =>
     return (
         <>
         { displayResultsMessage.slice(-1) === " "
-          ? (<p>{displayResultsMessage} &nbsp;</p>)
+          ? (<p>{displayResultsMessage}&nbsp;</p>)
           : (<p>{displayResultsMessage}</p>)
         }
         </>

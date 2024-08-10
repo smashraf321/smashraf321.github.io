@@ -8,16 +8,16 @@
 
 @layer base {
   h1 {
-    @apply text-3xl text-purple-200;
+    @apply text-3xl text-purple-200 2xl:text-4xl;
   }
   h2 {
-    @apply text-xl text-violet-200 font-medium;
+    @apply text-xl text-violet-200 font-medium 2xl:text-2xl;
   }
   h3 {
-    @apply text-lg font-medium;
+    @apply text-lg font-medium 2xl:text-xl;
   }
   h4 {
-    @apply text-base my-1 font-medium text-zinc-50;
+    @apply text-base my-1 font-medium text-zinc-50 2xl:text-lg;
   }
 }
 
@@ -33,4 +33,29 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: rgb(30 41 59);
+
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #d294df ;
+  /* background: rgb(30 41 59); */
+  border-radius: 5px;
+  border: 3px solid rgb(30 41 59);
+  /* border: 2px solid #d294df ; */
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }

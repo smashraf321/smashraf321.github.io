@@ -59,7 +59,7 @@ const ExperienceItem = ({ experience }) => {
       </button>
       
       <div
-        className={`grid overflow-hidden transition-all ease-out duration-100 text-sm rounded-b-xl  ${
+        className={`grid overflow-hidden transition-all ease-out duration-100 text-sm 2xl:text-base rounded-b-xl  ${
           accordionOpen
             ? "grid-rows-[1fr] opacity-100"
             : "grid-rows-[0fr] opacity-0" // grid-rows-[0fr] opacity-50

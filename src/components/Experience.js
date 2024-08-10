@@ -36,7 +36,7 @@ const Experience = ({ experienceType }) =>
     );
 
     return (
-        <div className="p-1 lg:pt-4">
+        <div className="p-1 2xl:pt-4">
             <h2 className="p-2">
                 {experienceType}
             </h2>

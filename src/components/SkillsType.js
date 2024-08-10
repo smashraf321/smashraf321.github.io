@@ -33,10 +33,10 @@ const SkillsType = ({ skillSelectable, skillType }) =>
 
     return (
         <>
-        <h3 className="py-2 px-1 lg:px-6 text-purple-200">
+        <h3 className="py-2  2xl:px-6 text-purple-200">
             {skillType[0]}
         </h3>
-        <ul title={`${skillType[0]} skills list`} className="lg:ps-2 flex flex-wrap">
+        <ul title={`${skillType[0]} skills list`} className="2xl:ps-2 flex flex-wrap">
             {React.createElement(React.Fragment, {}, ...skillsList)}
         </ul>
         </>

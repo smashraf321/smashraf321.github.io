@@ -59,8 +59,8 @@ const ExperienceItemHeader = ({ header, accordionOpen }) =>
             <div className="p-1 flex flex-wrap justify-between rounded-md border border-violet-200 border-2 bg-stone-800">
               <div className="w-11/12 text-left text-purple-200 leading-6 p-1">
                 <h3>{name} </h3>
-                <p className="text-base">{header?.title}</p>
-                <p className="text-sm text-zinc-200"><em>{time}</em> </p>
+                <p className="text-base 2xl:text-lg">{header?.title}</p>
+                <p className="text-sm 2xl:text-base text-zinc-200"><em>{time}</em> </p>
                 <ul title="domain areas" className="flex flex-wrap">
                   {React.createElement(React.Fragment, {}, ...headerTags)}
                 </ul>

@@ -24,16 +24,16 @@ function App() {
     // dark:bg-slate-800
     // bg-[url('../src/img/space_wallpaper.jpg')]
     // flex justify-center
-    // md:w-3/4 xl:w-3/5
-    <div className="w-full h-full min-h-screen bg-slate-800 sm:flex sm:justify-center lg:flex-none text-zinc-200 text-xs">
-      <div className="font-montserrat sm:max-w-[600px] md:min-w-[600px] md:w-[70%] lg:w-full lg:max-w-full lg:flex lg:justify-between ">
-        <div className="px-1 ps-3 lg:w-[47%] lg:max-w-[47%] pt-2">
+    // md:w-3/4 2xl:w-3/5
+    <div className="w-full h-full min-h-screen bg-slate-800 sm:flex sm:justify-center 2xl:flex-none text-zinc-200 text-xs 2xl:text-sm">
+      <div className="font-montserrat max-sm:max-w-[600px] md:min-w-[600px] md:w-[60%] 2xl:w-full 2xl:max-w-[1920px] 2xl:flex 2xl:justify-between ">
+        <div className="px-1 ps-3 2xl:w-[40%] 2xl:max-w-[40%] pt-2 ">
           <TopBar/>
           <AboutMe/>
           <Skills/>
           <FilterExperience/>
         </div>
-        <div className="lg:min-w-[600px] lg:w-[53%] lg:p-1 lg:ps-2 lg:max-h-screen lg:overflow-y-scroll lg:pt-2">
+        <div className="max-2xl:mt-2 2xl:min-w-[600px] 2xl:w-[60%] 2xl:p-1 2xl:ps-2 2xl:max-h-screen 2xl:pt-2 2xl:overflow-y-auto">
           {React.createElement(React.Fragment, {}, ...ExperienceList)}
         </div>
       </div>
