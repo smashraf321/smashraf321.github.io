@@ -6,7 +6,7 @@ const allResearchInit =
             name: "Analyzing driving behavior in Fleet Management System",
             title: "Industry Partner: Optical Operations LLC",
             time: "Aug '18 - Aug '19",
-            domains: new Set(["Data Analytics", "Sensor Fusion", "IoT", "Vehicle Telematics", "Embedded Applications", "System Automation"])
+            domains: new Set(["Data Analytics", "Sensor Fusion", "IoT", "Vehicle Telematics", "Embedded Applications", "System Automation", "Data Engineering"])
         },
         body:
         {

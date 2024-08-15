@@ -17,7 +17,7 @@ var allProjectsInit = [
                     <li>Optimized state management for convenient user experience.</li>
                     <li>Ran accessibility checks including with NVDA to ensure site is 100% accessible.</li>
                 </ul>
-                <p>NOTE: Will keep improving, this is just the beginning.</p>
+                <p><br/>NOTE: This site gets constant updates as and when I get time.</p>
                 </>
             ),
             skills: new Set(["React", "Tailwind", "JavaScript", "HTML/CSS", "NVDA"])
@@ -25,9 +25,31 @@ var allProjectsInit = [
     },
     {
         header: {
+            name: "Data Job Market Analysis",
+            time: "Jun '24",
+            domains: new Set(["Data Analytics", "Data Engineering", "Database Management"])
+        },
+        body: {
+            description: (
+                <>
+                <h4>Goal</h4>
+                <p>Analyze trends in data job market</p>
+                <h4>Actions</h4>
+                <ul className="list-disc  ps-2">
+                    <li>Create and load data onto PostgreSQL from csv files.</li>
+                    <li>Wrote many advanced SQL queries usings Joins, CTEs, and more.</li>
+                    <li>Accurately identified various trends such as top high paying and high in-demand skills, top paying jobs, and more.</li>
+                </ul>
+                </>
+            ),
+            skills: new Set(["SQL", "PostgreSQL"])
+        }
+    },
+    {
+        header: {
             name: "Predictive modeling for residential sales",
             time: "Feb '24",
-            domains: new Set(["AI/ML", "Data Analytics", "Data Visualization"])
+            domains: new Set(["AI/ML", "Data Science", "Data Analytics", "Data Visualization"])
         },
         body: {
             description: (
@@ -48,7 +70,7 @@ var allProjectsInit = [
         header: {
             name: "Generative Model for traffic prediction",
             time: "Mar '23 - Apr '23",
-            domains: new Set(["AI/ML", "Time Series Forecasting", "Data Visualization"])
+            domains: new Set(["AI/ML", "Data Science", "Time Series Forecasting", "Data Visualization"])
         },
         body: {
             description: (
@@ -84,7 +106,7 @@ var allProjectsInit = [
                 </ul>
                 </>
             ),
-            skills: new Set(["Solidity"])
+            skills: new Set(["Solidity", "Java"])
         }
     },
     {

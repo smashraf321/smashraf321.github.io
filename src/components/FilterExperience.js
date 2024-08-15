@@ -32,7 +32,9 @@ const FilterButtons = ({ matchType, enabled }) =>
                 // AND check
                 // issubsetof is new feature june 2024, won't work in older
                 // experienceSelector[experienceType].forEach((objval) => {
-                //     selectedSkills.size > 0 && selectedSkills.isSubsetOf(objval.body.skills) && matchingExperience.add(objval)    
+                //    selectedSkills.size > 0
+                // && (selectedSkills.isSubsetOf(objval.body.skills) || selectedSkills.isSubsetOf(objval.header.domains))
+                // && matchingExperience.add(objval)    
                 // });
                 experienceSelector[experienceType].forEach((objval) => {
 
@@ -41,7 +43,7 @@ const FilterButtons = ({ matchType, enabled }) =>
                     let i = iter.next();
                     while(!i.done && matchFound)
                     {
-                        matchFound = matchFound && objval.body.skills.has(i.value);
+                        matchFound = matchFound && (objval.body.skills.has(i.value) || objval.header.domains.has(i.value));
                         i = iter.next();
                     }
                     matchFound && matchingExperience.add(objval);
@@ -54,13 +56,13 @@ const FilterButtons = ({ matchType, enabled }) =>
                 // shows experience in order of skills selected
                 // selectedSkills.forEach((arrval) => {
                 //     experienceSelector[experienceType].forEach((objval) => {
-                //        objval.body.skills.has(arrval) && matchingExperience.add(objval);
+                //        (objval.body.skills.has(arrval) || objval.header.domains.has(arrval)) && matchingExperience.add(objval);
                 //     });
                 // });
                 // shows exp in their initial order
                 // intersection is new feature june 2024, won't work in older
                 // experienceSelector[experienceType].forEach((objval) => {
-                //     selectedSkills.intersection(objval.body.skills).size > 0 && matchingExperience.add(objval)
+                //     (selectedSkills.intersection(objval.body.skills).size > 0 || selectedSkills.intersection(objval.header.domains).size > 0) && matchingExperience.add(objval)
                 // });
                 experienceSelector[experienceType].forEach((objval) => {
 
@@ -69,7 +71,7 @@ const FilterButtons = ({ matchType, enabled }) =>
                     let i = iter.next();
                     while(!i.done && !matchFound)
                     {
-                        matchFound = objval.body.skills.has(i.value);
+                        matchFound = (objval.body.skills.has(i.value) || objval.header.domains.has(i.value));
                         i = iter.next();
                     }
                     matchFound && matchingExperience.add(objval);
