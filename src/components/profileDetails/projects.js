@@ -12,11 +12,12 @@ var allProjectsInit = [
                 <p>Design an accessible portfolio website.</p>
                 <h4>Actions</h4>
                 <ul className="list-disc  ps-2">
-                    <li>Created the site using efficient algorithms and optimized rendering.</li>
-                    <li>Implemented a robust filter feature to only display items with interested skills.</li>
-                    <li>Optimized state management for convenient user experience.</li>
-                    <li>Ran accessibility checks including with NVDA to ensure site is 100% accessible.</li>
+                    <li>Developed a dynamic and efficient website by leveraging advanced React design patterns, thereby making the design extremely scalable, automated, and compatible across many platforms and browser versions.</li>
+                    <li>Implemented an optimized filter feature, enabling users to view experiences based on selected skills while maintaining blazing fast performance.</li>
+                    <li>Enhanced React state management, ensuring a seamless UI/UX design and reducing unnecessary re-renders for performance improvements.</li>
+                    <li>Designed complex, accessible components with a focus on both functionality and visual appeal, adhering to best practices for inclusive design.</li>
                 </ul>
+
                 <p><br/>NOTE: This site gets constant updates as and when I get time.</p>
                 </>
             ),
@@ -36,9 +37,9 @@ var allProjectsInit = [
                 <p>Analyze trends in data job market</p>
                 <h4>Actions</h4>
                 <ul className="list-disc  ps-2">
-                    <li>Create and load data onto PostgreSQL from csv files.</li>
-                    <li>Wrote many advanced SQL queries usings Joins, CTEs, and more.</li>
-                    <li>Accurately identified various trends such as top high paying and high in-demand skills, top paying jobs, and more.</li>
+                    <li>Developed and managed a PostgreSQL database by creating and loading data from CSV files, ensuring efficient data storage and retrieval.</li>
+                    <li>Crafted advanced SQL queries utilizing Joins, Common Table Expressions (CTEs), and other complex operations to analyze and manipulate datasets.</li>
+                    <li>Identified and analyzed key trends in the data job market, including high-paying and in-demand skills, and top-paying job roles, and more.</li>
                 </ul>
                 </>
             ),
